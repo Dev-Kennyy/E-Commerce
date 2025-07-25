@@ -1,4 +1,5 @@
 import Product from "../Product";
+import { FaRegArrowAltCircleDown } from "react-icons/fa";
 
 function Products() {
   return (
@@ -14,7 +15,7 @@ function Products() {
         <Product />
       </div>
       <button className="absolute mr-9 flex justify-center rounded-md bg-[#DB4444] p-2 text-center text-white">
-        View All Products
+        <FaRegArrowAltCircleDown />
       </button>
     </>
   );
