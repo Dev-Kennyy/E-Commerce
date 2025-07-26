@@ -17,7 +17,7 @@ function MainHeader() {
         {isOpen ? "❌" : <RxHamburgerMenu />}
       </button>
       <div
-        className={`absolute left-0 top-20 flex w-full transform flex-col items-center gap-6 bg-white transition-transform md:hidden ${isOpen ? "opacity-100" : "opacity-0"}`}
+        className={`absolute left-0 top-20 flex w-full transform flex-col items-center gap-6 bg-white transition-transform md:hidden ${isOpen ? "" : "hidden"}`}
       >
         <ul className="md:hiddenz flex flex-col items-center justify-center">
           <HeaderNavList />
