@@ -4,6 +4,8 @@ import SignUpPage from "./pages/SignUp/PageSignUp.jsx";
 import AppLayOut from "./pages/AppLayOut";
 import Login from "./pages/SignUp/Login.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Contact from "./pages/Contact.jsx";
+import About from "./pages/About.jsx";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Route index element={<MainHome />} />
           <Route path="signup" element={<SignUpPage />} />
           <Route path="login" element={<Login />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

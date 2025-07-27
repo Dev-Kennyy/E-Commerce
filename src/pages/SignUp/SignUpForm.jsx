@@ -20,7 +20,7 @@ function SignUpForm() {
         <p className="text-gray-500">
           Already have account?
           <span
-            className="cursor-pointer text-black underline hover:text-[#DB4444]"
+            className="cursor-pointer pl-3 text-black underline hover:text-[#DB4444]"
             onClick={() => navigate("/login")}
           >
             Log In
