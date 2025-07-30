@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 function Product() {
+  const navigate = useNavigate("");
   return (
-    <div className="relative border bg-gray-50 p-2 shadow-2xl">
+    <div
+      className="relative cursor-pointer border bg-gray-50 p-2 shadow-2xl"
+      onClick={() => navigate("/product")}
+    >
       <img src="Frame 611.png" alt="" />
       <div className="w-full bg-black text-center text-sm text-white">
         Add To Cart

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { CiHeart, CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 function RightHeaderContent() {
+  const navigate = useNavigate("/");
   const [isDown, setIsDown] = useState(false);
 
   return (
@@ -23,7 +25,10 @@ function RightHeaderContent() {
       </div>
 
       {/* Cart */}
-      <div className="flex cursor-pointer gap-2">
+      <div
+        className="flex cursor-pointer gap-2"
+        onClick={() => navigate("/cart")}
+      >
         <CiShoppingCart className="text-2xl" />
         <span className="md:hidden">Cart</span>
       </div>
@@ -39,8 +44,18 @@ function RightHeaderContent() {
         {isDown && (
           <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-xl border border-white/20 bg-white/20 p-3 text-sm text-black shadow-lg backdrop-blur-md">
             <ul className="flex flex-col gap-4">
-              <li className="hover:text-red-500">Manage My Account</li>
-              <li className="hover:text-red-500">Manage Order</li>
+              <li
+                className="hover:text-red-500"
+                onClick={() => navigate("/settings")}
+              >
+                Manage My Account
+              </li>
+              <li
+                className="hover:text-red-500"
+                onClick={() => navigate("/cart")}
+              >
+                Manage Order
+              </li>
               <li className="hover:text-red-500">Cancellation</li>
               <li className="hover:text-red-500">My Reviews</li>
               <li className="hover:text-red-500">Log Out</li>
