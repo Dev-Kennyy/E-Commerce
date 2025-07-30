@@ -1,17 +1,28 @@
 import React, { useRef } from "react";
+import { useAppSelector } from "../../store/hooks";
+import { selectFlashSaleProducts } from "../../store/slices/productSlice";
 import Product from "../Product";
 
 function Products() {
   const scrollRef = useRef(null);
+  const flashSaleProducts = useAppSelector((state) => selectFlashSaleProducts(state, 8));
 
   const handleScroll = (direction) => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === "right" ? 200 : -200,
+        left: direction === "right" ? 300 : -300,
         behavior: "smooth",
       });
     }
   };
+
+  if (flashSaleProducts.length === 0) {
+    return (
+      <div className="px-9 py-8 text-center text-gray-500">
+        <p>No flash sale products available at the moment.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative mb-7 px-9">
@@ -33,17 +44,15 @@ function Products() {
         </button>
       </div>
       <div
-        className="tailwind-scrollbar-hide flex items-center gap-3 overflow-x-auto scroll-smooth pt-9"
+        className="tailwind-scrollbar-hide flex items-center gap-4 overflow-x-auto scroll-smooth pt-9"
         ref={scrollRef}
         style={{ scrollBehavior: "smooth" }}
       >
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {flashSaleProducts.map((product) => (
+          <div key={product.id} className="flex-shrink-0 w-64">
+            <Product product={product} />
+          </div>
+        ))}
       </div>
     </div>
   );
